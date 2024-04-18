@@ -55,7 +55,7 @@ import Home from './Home.vue';
 import sweetalert from "sweetalert";
 
 export default {
-    props: [""],
+    props: ["category"],
     data() {
         return {
             email: '',
