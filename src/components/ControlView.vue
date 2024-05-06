@@ -1173,7 +1173,7 @@
                 let flightref = 'http://www.radarbox.com/flight/' + item.fltnr.slice(0, 2) + Number(item.fltnr.slice(-4)).toString();
                 if (this.isInFlight(item)) window.open(flightref, '_blank');
                 return ''
-            },
+            }, 
             formatDate(date) {
                 return util.formatDayHours(date);
             },

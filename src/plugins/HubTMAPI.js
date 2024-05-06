@@ -102,7 +102,7 @@ export class APIService {
         let data = {
             'apiid': 3,
             'callId': id,
-            'hub': hub,
+            'hub': 'LIS',
             'history':history
         };
         return this.call(url, data, msalInstance);
@@ -113,7 +113,7 @@ export class APIService {
         let data = {
             'apiid': 4,
             'callId': id,
-            'hub': hub
+            'hub': 'LIS'
         };
         return this.call(url, data, msalInstance);
     }
@@ -664,7 +664,7 @@ export class APIService {
             'callId': id,
             'flightids': flightidsList,
             'registrations': registrationsList,
-            'station': station
+            'station': 'LIS'
         };
         
         return await this.call(url, data, msalInstance);
@@ -695,7 +695,7 @@ export class APIService {
         let data = {
             'apiid': 54,
             'callId': id,
-            'hub': hub,
+            'hub': 'LIS',
             'history': history
         };
         return this.call(url, data, msalInstance);
@@ -716,7 +716,7 @@ export class APIService {
         let data = {
             'apiid': 56,
             'callId': id,
-            'hub': hub,
+            'hub': 'LIS',
             'history': history
         };
         return this.call(url, data, msalInstance);

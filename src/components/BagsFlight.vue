@@ -381,12 +381,13 @@
         },
         mounted() {
             this.hub = this.$store.getters.hub;
-            this.dataAccess = new DataAccess(this.$msal);
+            this.dataAccess = new DataAccess(this.$msal);   
             this.getBags('bagsflight', this.flightid);
             this.getFlight('bagsflight', this.flightid);
             this.timer = setInterval(function () {
                 this.getBags('bagsflight', this.flightid);
             }.bind(this), 30000);
+            
         },
         beforeUnmount() {
             clearInterval(this.timer);

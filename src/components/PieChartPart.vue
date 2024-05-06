@@ -128,11 +128,11 @@
                                   <apexchart
                                     :key="key"
                                     type="radialBar"
-                                    :height="
+                                    :height=
                                       chartsValues.chartHeightDepartureNet
-                                    "
-                                    :options="chartOptionsDeparture15"
-                                    :series="seriesDeparture15"
+                                    
+                                    :options=chartOptionsDeparture15
+                                    :series=seriesDeparture15
                                   />
                                 </v-col>
                               </template>
@@ -737,7 +737,7 @@
                   mdi-alpha-h-box
                 </v-icon>
                 <v-icon v-else class="mr-2 my-0" @click="changeHub()">
-                  mdi-arrow-left-bold-hexagon-outline
+                  
                 </v-icon>
                 <strong class="text-h6">Hub {{ this.station }}</strong>
                 <v-spacer></v-spacer>
@@ -2446,7 +2446,7 @@ export default {
         cargocc: 0,
         acmiall: 0,
         acmideparted: 0,
-        acmicc: 0,
+        acmicc: null,
         chartersall: 0,
         chartersdeparted: 0,
         charterscc: 0,
@@ -3321,7 +3321,7 @@ export default {
       this.refreshData()
     },
   },
-}
+}           
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
