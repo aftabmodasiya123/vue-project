@@ -652,11 +652,11 @@
                               :items-per-page="3"
                               dense
                             >
-                              <template v-slot:item.fields.start="{ item }">
+                              <template v-slot:item>
                                 {{ formatDate(item.fields.start) }}
                               </template>
-                              <template v-slot:item.fields.end="{ item }">
-                                {{ formatDate(item.fields.end) }}
+                              <template v-slot:items>
+                                {{ formatDate(items.fields.end) }}
                               </template>
                             </v-data-table>
                           </v-col>
@@ -713,7 +713,7 @@
                               :items-per-page="3"
                               dense
                             >
-                              <template v-slot:item.fields.std="{ item }">
+                              <template v-slot:item>
                                 {{ formatDate(item.fields.std) }}
                               </template>
                             </v-data-table>
@@ -1636,8 +1636,8 @@ const util = new Utils()
 
 export default {
   props: ['stations', 'smalls'],
-  components: {
-    apexchart: VueApexCharts,
+    components: {
+      apexchart: VueApexCharts,
   },
   data() {
     return {
@@ -1645,7 +1645,7 @@ export default {
       canHistory: true,
       dataAccess: null,
       dow: util.getDoW(),
-      station: this.stations,
+      station: this.$store.getters.station,
       small: this.smalls,
       darkMode: this.$store.getters.darkMode,
       key: 0,
@@ -2578,9 +2578,9 @@ export default {
         this.canHistory = false
       }
     },
-    getOperationStatus(id, station) {
+    getOperationStatus(id, stations) {
       this.dataAccess
-        .getOperationStatus(id, station, this.history)
+        .getOperationStatus(id, stations , this.history)
         .then((response) => {
           var operationStatus = response.data
 

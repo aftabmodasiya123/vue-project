@@ -131,32 +131,28 @@
                                 </v-dialog>
                             </v-toolbar>
                         </template>
-                        <template v-slot:item.actions="{ item }">
-                            <v-icon small
-                                    class="mr-2"
-                                    @click="editItem(item)">
-                                mdi-pencil
-                            </v-icon>
-                            <v-icon small
-                                    @click="deleteItem(item)">
-                                mdi-delete
-                            </v-icon>
-                        </template>
-                        <template v-slot:item.fields.fltinfoid="{ item }">
-                            {{ formatFlight(item.flight) }}
-                        </template>
-                        <template v-slot:item.fields.start_date="{ item }">
-                            {{ formatDayHour(item.fields.start_date) }}
-                        </template>
-                        <template v-slot:item.fields.end_date="{ item }">
-                            {{ formatDayHour(item.fields.end_date) }}
-                        </template>
-                        <template v-slot:item.fields.is_active="{ item }">
-                            {{ formatIsActive(item.fields.is_active) }}
-                        </template>
-                        <template v-slot:item.fields.ts="{ item }">
-                            {{ formatDayHour(item.fields.ts) }}
-                        </template>
+                        <template>
+                            <ChildComponent>
+                                <template v-slot:actions>
+                                <v-icon small class="mr-2" @click="editItem(item)">
+                                    mdi-pencil
+                                </v-icon>
+                                <v-icon small @click="deleteItem(item)">
+                                    mdi-delete
+                                </v-icon>
+                                </template>
+                            </ChildComponent>
+                            </template>
+
+                            <template v-slot:itemfields="{ item }">
+                            <div>
+                                <div>{{ formatFlight(item.flight) }}</div>
+                                <div>{{ formatDayHour(item.fields.start_date) }}</div>
+                                <div>{{ formatDayHour(item.fields.end_date) }}</div>
+                                <div>{{ formatIsActive(item.fields.is_active) }}</div>
+                                <div>{{ formatDayHour(item.fields.ts) }}</div>
+                            </div>
+                            </template>
                     </v-data-table>
                 </v-col>
             </v-row>

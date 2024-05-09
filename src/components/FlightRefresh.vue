@@ -13,7 +13,6 @@
                                 <v-text-field id="flightnbr" type="text" label="Flight"
                                               placeholder="XX0201"
                                               filled
-                                              dense
                                               :value="search.flightnbr"
                                               class="ma-1 pa-1"></v-text-field>
                             </v-col>
@@ -25,6 +24,7 @@
                                               :value="search.flightdate"
                                               class="ma-1 pa-1"></v-text-field>
                             </v-col>
+                            
                         </v-row>
                         <v-row no-gutters dense align="center" class="justify-space-around ma-0 pa-0">
                             <v-col align-self="center" md="3">
@@ -115,8 +115,6 @@
         }
     };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     .style-actual {
         vertical-align: middle;

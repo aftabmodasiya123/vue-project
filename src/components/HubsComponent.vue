@@ -5,7 +5,7 @@
                 <v-col>
                     <v-data-table :headers="headers"
                                   :items="items"
-                                  sort-by="hub"
+                                  :sort-by="sortBy"
                                   class="elevation-1">
                         <template v-slot:top>
                             <v-toolbar flat>
@@ -44,7 +44,8 @@
                         tip: "Hub"
                     },
                 ],
-                items: []
+                items: [],
+                sortBy:['hub']
             }
         },
         methods: {

@@ -5,7 +5,7 @@
                 <v-col>
                     <v-data-table :headers="headers"
                                   :items="items"
-                                  sort-by="hub"
+                                  :sort-by="sortBy"
                                   class="elevation-1">
                         <template v-slot:top>
                             <v-toolbar flat>
@@ -21,7 +21,8 @@
                                                dark
                                                class="mb-2"
                                                v-bind="attrs"
-                                               v-on="on">
+                                               v-on="on"
+                                               @click="openDialog">
                                             New Item
                                         </v-btn>
                                     </template>
@@ -78,19 +79,16 @@
                                 </v-dialog>
                             </v-toolbar>
                         </template>
-                        <template v-slot:item.actions="{ item }">
-                            <v-icon small
-                                    class="mr-2"
-                                    @click="editItem(item)">
-                                mdi-pencil
-                            </v-icon>
-                            <v-icon small
-                                    @click="deleteItem(item)">
-                                mdi-delete
-                            </v-icon>
+                        <template v-slot:[`item.actions`]="{ item }">
+                        <v-icon small class="mr-2" @click="editItem(item)">
+                            mdi-pencil
+                         </v-icon>
+                       <v-icon small @click="deleteItem(item)">
+                           mdi-delete
+                       </v-icon>
                         </template>
-                        <template v-slot:item.fields.ts="{ item }">
-                            {{ formatDayHour(item.fields.ts) }}
+                        <template v-slot:item>
+                                {{ formatDayHour(items.fields.ts) }}
                         </template>
                     </v-data-table>
                 </v-col>
@@ -98,7 +96,6 @@
         </v-container>
     </v-app>
 </template>
-
 <script>
     import { Utils } from '../plugins/Utils';
     import { DataAccess } from '../plugins/DataAccess';
@@ -143,7 +140,8 @@
                         'text': '',
                     }
                 },
-                items: []
+                items: [],
+                sortBy:['hub']
             }
         },
         computed: {
@@ -156,9 +154,10 @@
                 val || this.close()
             },
             dialogDelete(val) {
-                val || this.closeDelete()
+                val || this.closeDelete(    )
             },
         },
+
         methods: {
             getMessages(id) {
                 try {
@@ -171,6 +170,10 @@
                 } catch (error) {
                     this.items = [];
                 }
+            },
+            openDialog(){
+
+                this.dialog = true
             },
             setMessage(id, message) {
                 try {

@@ -140,7 +140,7 @@
                                         <v-list-item-group class="d-flex justify-space-around flex-wrap pa-0 ma-0">
                                             <!-- Flt Nr -->
                                             <v-col cols="12" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersIn(0)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption" >{{getHeadersIn(0)}}</v-list-item-subtitle>
                                                 <v-list-item-title dense class="flex-content text-caption ma-0 pa-0">
                                                     <a class="ma-0 pa-0" @click="doFilterIn(item.fields.fltinid)">{{ item.fields.fltnr }}</a>
                                                     <v-btn class="ma-0 pa-0"  icon color="blue-grey lighten-4"
@@ -168,22 +168,22 @@
                                             </v-col>
                                             <!-- A/C -->
                                             <v-col cols="6" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersIn(1)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="formatAC(item.fields)"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeadersIn(1)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{formatAC(item.fields)}}</v-list-item-title>
                                             </v-col>
                                             <!-- From -->
                                             <v-col cols="6" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersIn(2)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="item.fields.from_iata"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeadersIn(2)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{item.fields.from_iata}}</v-list-item-title>
                                             </v-col>
                                             <!-- STA -->
                                             <v-col cols="6" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersIn(3)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="formatSTA(item.fields)"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeadersIn(3)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{formatSTA(item.fields)}}</v-list-item-title>
                                             </v-col>
                                             <!-- UTA -->
                                             <v-col cols="6" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersIn(4)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeadersIn(4)}}</v-list-item-subtitle>
                                                 <v-list-item-title class="flex-content text-caption">
                                                     <v-tooltip bottom>
                                                         <template v-slot:activator="{ on }">
@@ -197,7 +197,7 @@
                                             </v-col>
                                             <!-- PB -->
                                             <v-col cols="4" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersIn(5)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeadersIn(5)}}</v-list-item-subtitle>
                                                 <v-list-item-title class="flex-content text-caption">
                                                     <div v-if="!item.fields.paxtotal || !item.fields.bagboard">
                                                     <v-icon size="20" color="#BDBDBD">mdi-panorama-fisheye</v-icon>
@@ -396,7 +396,7 @@
                                         <v-list-item-group class="d-flex justify-space-around flex-wrap pa-0 ma-0">
                                             <!-- Flt Nr -->
                                             <v-col cols="8" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersOut(0)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeadersOut(0)}}</v-list-item-subtitle>
                                                 <v-list-item-title class="flex-content text-caption">
                                                     <a class="ma-0 pa-0" @click="doFilterOut(item.fields.fltoutid)" href="#">{{ item.fields.fltnr }}</a>
                                                     <v-btn class="ma-0 pa-0"  icon color="blue-grey lighten-4"
@@ -424,22 +424,22 @@
                                             </v-col>
                                             <!-- A/C -->
                                             <v-col cols="4" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersOut(1)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="formatAC(item.fields)"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption"> {{getHeadersOut(1)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption"> {{formatAC(item.fields)}}</v-list-item-title>
                                             </v-col>
                                             <!-- To -->
                                             <v-col cols="4" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersOut(2)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="item.fields.to_iata"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption"> {{getHeadersOut(2)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{item.fields.to_iata}}</v-list-item-title>
                                             </v-col>
                                             <!-- STD -->
                                             <v-col cols="4" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersOut(3)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="formatSTD(item.fields)"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeadersOut(3)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{formatSTD(item.fields)}}</v-list-item-title>
                                             </v-col>
                                             <!-- UTD -->
                                             <v-col cols="4" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersOut(4)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeadersOut(4)}}</v-list-item-subtitle>
                                                 <v-list-item-title class="flex-content text-caption">
                                                     <v-tooltip bottom>
                                                         <template v-slot:activator="{ on }">
@@ -453,7 +453,7 @@
                                             </v-col>
                                             <!-- Baggage -->
                                             <v-col cols="4" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersOut(5)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption" >{{getHeadersOut(5)}}</v-list-item-subtitle>
                                                 <v-list-item-title class="flex-content text-caption">
                                                     <v-tooltip bottom>
                                                         <template v-slot:activator="{ on, attrs }">
@@ -479,7 +479,7 @@
                                             </v-col>
                                             <!-- Passenger -->
                                             <v-col cols="4" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersOut(6)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption">{getHeadersOut(6)}</v-list-item-subtitle>
                                                 <v-list-item-title class="flex-content text-caption">
                                                     <v-tooltip bottom>
                                                         <template v-slot:activator="{ on, attrs }">
@@ -507,7 +507,7 @@
                                             </v-col>
                                             <!-- TSAT -->
                                             <v-col cols="4" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersOut(7)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeadersOut(7)}}</v-list-item-subtitle>
                                                 <v-list-item-title class="flex-content text-caption">
                                                     <v-tooltip bottom>
                                                         <template v-slot:activator="{ on }">
@@ -521,7 +521,7 @@
                                             </v-col>
                                             <!-- ARDT -->
                                             <v-col cols="4" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersOut(8)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeadersOut(8)}}</v-list-item-subtitle>
                                                 <v-list-item-title class="flex-content text-caption">
                                                     <v-tooltip bottom>
                                                         <template v-slot:activator="{ on }">
@@ -535,7 +535,7 @@
                                             </v-col>
                                             <!-- TOBT -->
                                             <v-col cols="4" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersOut(9)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption" >{{getHeadersOut(9)}}</v-list-item-subtitle>
                                                 <v-list-item-title class="flex-content text-caption">
                                                     <span>
                                                         {{ formatTOBTDate(item.fields) }}
@@ -544,7 +544,7 @@
                                             </v-col>
                                             <!-- CTOT -->
                                             <v-col cols="4" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersOut(10)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeadersOut(10)}}</v-list-item-subtitle>
                                                 <v-list-item-title class="flex-content text-caption">
                                                     <span>
                                                         {{ formatCTOTDate(item.fields) }}
@@ -553,7 +553,7 @@
                                             </v-col>
                                             <!-- Prio -->
                                             <v-col cols="4" class="pa-0 ma-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeadersOut(11)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption" >{{getHeadersOut(11)}}</v-list-item-subtitle>
                                                 <v-list-item-title class="flex-content text-caption">
                                                     <v-icon medium
                                                             class="ma-0 pa-0" :color="formatPrio(item.fields)"
@@ -720,136 +720,136 @@
                     tsatyellow: '',
                     tsatred: ''
                 },
-                headersIn: [
-                    {
-                        text: 'Flt Nr',
-                        align: 'left',
-                        value: 'fields.fltnr',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Flight Number'
-                    },
-                    {
-                        text: 'A/C',
-                        align: 'center',
-                        value: 'fields.ac_registration',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Aircraft Registration'
-                    },
-                    {
-                        text: 'From',
-                        align: 'center',
-                        value: 'fields.from_iata',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Origin'
-                    },
-                    {
-                        text: 'STA',
-                        align: 'center',
-                        value: 'fields.sta',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Scheduled Time of Arrival'
-                    },
-                    {
-                        text: 'UTA',
-                        align: 'center',
-                        value: 'fields.ata',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Updated Arrival Time (ETA or ATA)'
-                    },
-                    {
-                        text: 'Passenger',
-                        align: 'center',
-                        value: 'fields.pb',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Flight passengers boarded percentage and total passengers missing'
-                    }
-                ],
-                headersOut: [
-                    {
-                        text: 'Flt Nr',
-                        align: 'left',
-                        value: 'fields.fltnr',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Flight Number'
-                    },
-                    {
-                        text: 'A/C',
-                        align: 'center',
-                        value: 'fields.ac_registration',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Aircraft Registration'
-                    },
-                    {
-                        text: 'To',
-                        align: 'center',
-                        value: 'fields.to_iata',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Destination'
-                    },
-                    {
-                        text: 'STD',
-                        align: 'center',
-                        value: 'fields.std',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Scheduled Departure Time'
-                    },
-                    {
-                        text: 'UTD',
-                        align: 'center',
-                        value: 'fields.atd',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Updated Depature Time (ETD or ATD)'
-                    },
-                    {
-                        text: 'Baggage',
-                        align: 'center',
-                        value: 'fields.h2h',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Hull to Hull - Forecasted minimum time to execute  baggage transfer from inbound to outbound flights'
-                    },
-                    {
-                        text: 'Passenger',
-                        align: 'center',
-                        value: 'fields.pt',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Door to Door - Forecasted minimum time to execute passenger transfer from inbound to outbound flight'
-                    },
-                    {
-                        text: 'TSAT',
-                        align: 'center',
-                        value: 'fields.bagmo',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Target Start-Up Approval Time'
-                    },
-                    {
-                        text: 'ARDT',
-                        align: 'center',
-                        value: 'fields.bagmo',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Flight Aircraft Ready'
-                    },
-                    {
-                        text: 'TOBT',
-                        align: 'center',
-                        value: 'fields.bagmo',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Target Off-Block Time'
-                    },
-                    {
-                        text: 'CTOT',
-                        align: 'center',
-                        value: 'fields.bagmo',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Calculated Take Off Time'
-                    },
-                    {
-                        text: 'Prio',
-                        align: 'center',
-                        value: '',
-                        class: ['ma-0', 'pa-0'],
-                        tip: 'Indicator of priority outbound flight'
-                    },
-                ],
+                // headersIn: [
+                //     {
+                //         text: 'Flt Nr',
+                //         align: 'left',
+                //         value: 'fields.fltnr',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Flight Number'
+                //     },
+                //     {
+                //         text: 'A/C',
+                //         align: 'center',
+                //         value: 'fields.ac_registration',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Aircraft Registration'
+                //     },
+                //     {
+                //         text: 'From',
+                //         align: 'center',
+                //         value: 'fields.from_iata',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Origin'
+                //     },
+                //     {
+                //         text: 'STA',
+                //         align: 'center',
+                //         value: 'fields.sta',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Scheduled Time of Arrival'
+                //     },
+                //     {
+                //         text: 'UTA',
+                //         align: 'center',
+                //         value: 'fields.ata',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Updated Arrival Time (ETA or ATA)'
+                //     },
+                //     {
+                //         text: 'Passenger',
+                //         align: 'center',
+                //         value: 'fields.pb',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Flight passengers boarded percentage and total passengers missing'
+                //     }
+                // ],
+                // headersOut: [
+                //     {
+                //         text: 'Flt Nr',
+                //         align: 'left',
+                //         value: 'fields.fltnr',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Flight Number'
+                //     },
+                //     {
+                //         text: 'A/C',
+                //         align: 'center',
+                //         value: 'fields.ac_registration',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Aircraft Registration'
+                //     },
+                //     {
+                //         text: 'To',
+                //         align: 'center',
+                //         value: 'fields.to_iata',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Destination'
+                //     },
+                //     {
+                //         text: 'STD',
+                //         align: 'center',
+                //         value: 'fields.std',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Scheduled Departure Time'
+                //     },
+                //     {
+                //         text: 'UTD',
+                //         align: 'center',
+                //         value: 'fields.atd',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Updated Depature Time (ETD or ATD)'
+                //     },
+                //     {
+                //         text: 'Baggage',
+                //         align: 'center',
+                //         value: 'fields.h2h',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Hull to Hull - Forecasted minimum time to execute  baggage transfer from inbound to outbound flights'
+                //     },
+                //     {
+                //         text: 'Passenger',
+                //         align: 'center',
+                //         value: 'fields.pt',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Door to Door - Forecasted minimum time to execute passenger transfer from inbound to outbound flight'
+                //     },
+                //     {
+                //         text: 'TSAT',
+                //         align: 'center',
+                //         value: 'fields.bagmo',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Target Start-Up Approval Time'
+                //     },
+                //     {
+                //         text: 'ARDT',
+                //         align: 'center',
+                //         value: 'fields.bagmo',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Flight Aircraft Ready'
+                //     },
+                //     {
+                //         text: 'TOBT',
+                //         align: 'center',
+                //         value: 'fields.bagmo',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Target Off-Block Time'
+                //     },
+                //     {
+                //         text: 'CTOT',
+                //         align: 'center',
+                //         value: 'fields.bagmo',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Calculated Take Off Time'
+                //     },
+                //     {
+                //         text: 'Prio',
+                //         align: 'center',
+                //         value: '',
+                //         class: ['ma-0', 'pa-0'],
+                //         tip: 'Indicator of priority outbound flight'
+                //     },
+                // ],
                 filterIn: '',
                 filterOut: '',
                 itemsIn: [],
@@ -909,28 +909,35 @@
             },
             getRules(id, hub) {
                 try {
-                    this.dataAccess.getRules(id, hub).then((response) => {
-                        let data = response.data[0].fields;
-                        this.rules.ltyellow = data.ltyellow;
-                        this.rules.ltred = data.ltred;
-                        this.rules.arrivbagmavg = data.arrivbagmavg;
-                        this.rules.otpyellow = data.otpyellow;
-                        this.rules.mct = data.mct;
-                        this.rules.cfyellow = data.cfyellow;
-                        this.rules.cfred = data.cfred;
-                        this.rules.depbagmlimite = data.depbagmlimite;
-                        this.rules.depbagmred = data.depbagmred;
-                        this.rules.ptyellow = data.ptyellow;
-                        this.rules.ptred = data.ptred;
-                        this.rules.h2hyellow = data.h2hyellow;
-                        this.rules.h2hred = data.h2hred;
-                        this.rules.doorclosealert = data.doorclosealert;
-                        this.rules.minstartboard = 5;
-                        this.rules.ardtyellow = data.ardtyellow;
-                        this.rules.ardtred = data.ardtred;
-                        this.rules.tsatyellow = data.tsatyellow;
-                        this.rules.tsatred = data.tsatred;
-                    })
+                    this.dataAccess.getRules(id, hub)
+        .then((response) => {
+            if (response.data && response.data.length > 0) {
+                let data = response.data[0].fields;
+                this.rules.ltyellow = data.ltyellow;
+                this.rules.ltred = data.ltred;
+                this.rules.arrivbagmavg = data.arrivbagmavg;
+                this.rules.otpyellow = data.otpyellow;
+                this.rules.mct = data.mct;
+                this.rules.cfyellow = data.cfyellow;
+                this.rules.cfred = data.cfred;
+                this.rules.depbagmlimite = data.depbagmlimite;
+                this.rules.depbagmred = data.depbagmred;
+                this.rules.ptyellow = data.ptyellow;
+                this.rules.ptred = data.ptred;
+                this.rules.h2hyellow = data.h2hyellow;
+                this.rules.h2hred = data.h2hred;
+                this.rules.doorclosealert = data.doorclosealert;
+                this.rules.minstartboard = 5;
+                this.rules.ardtyellow = data.ardtyellow;
+                this.rules.ardtred = data.ardtred;
+                this.rules.tsatyellow = data.tsatyellow;
+                this.rules.tsatred = data.tsatred;
+            } else {
+                console.error("No rules data found for ID: " + id);
+                
+                
+            }
+        })
                 } catch (error) {
                     this.rules.ltyellow = '';
                     this.rules.ltred = '';

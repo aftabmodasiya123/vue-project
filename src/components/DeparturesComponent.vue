@@ -67,7 +67,7 @@
                                     <td :class="getClass(item.fields.atd)">
                                         <v-list-item-group class="d-flex justify-space-around flex-wrap pa-0 ma-0">
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(0)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(0)}}</v-list-item-subtitle>
                                                 <v-list-item-title class="flex-content text-caption">
                                                     <router-link :to="formatHRef(item)">{{ item.fields.ffltnr }}</router-link>
                                                 </v-list-item-title>
@@ -96,35 +96,35 @@
                                                 </v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(2)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="formatSTD(item.fields.std)"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(1)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{formatSTD(item.fields.std)}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(3)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="formatBTD(item.fields)"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(2)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{formatBTD(item.fields)}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(4)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="item.fields.fdest"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(3)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{item.fields.fdest}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(5)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="item.fields.lnrbags"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(4)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{item.fields.lnrbags}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(6)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="item.fields.tnrbags"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(5)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption"> {{item.fields.tnrbags}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(7)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="item.fields.isrushbag"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(6)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{item.fields.isrushbag}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(8)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="formatMinToETD(item.fields.etd)"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(7)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{formatMinToETD(item.fields.etd)}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(9)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(8)}}</v-list-item-subtitle>
                                                 <v-list-item-title class="flex-content text-caption">
                                                     {{ item.fields.tbags }} / {{ item.fields.tbagsbpm }} / {{ item.fields.tbagsboard }}
                                                 </v-list-item-title>

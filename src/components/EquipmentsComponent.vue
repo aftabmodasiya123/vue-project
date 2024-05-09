@@ -5,8 +5,9 @@
                 <v-col>
                     <v-data-table :headers="headers"
                                   :items="items"
-                                  sort-by="hub"
+                                  :sort-by="sortBy"
                                   class="elevation-1">
+                            
                         <template v-slot:top>
                             <v-toolbar flat>
                                 <v-toolbar-title>EQUIPMENT TYPES</v-toolbar-title>
@@ -14,6 +15,16 @@
                                            inset
                                            vertical></v-divider>
                                 <v-spacer></v-spacer>
+                                <template v-slot:headers="{ headers }">
+                            <thead>
+                                <tr>
+                                    <!-- Loop through headers and display the title -->
+                                    <th v-for="header in headers" :key="header.value">
+                                        {{ header.text }}
+                                    </th>
+                                </tr>
+                            </thead>
+                        </template>
                                 <v-dialog v-model="dialog"
                                           max-width="500px">
                                     <template v-slot:activator="{ on, attrs }">
@@ -21,7 +32,8 @@
                                                dark
                                                class="mb-2"
                                                v-bind="attrs"
-                                               v-on="on">
+                                               v-on="on"
+                                               @click="openDialog">
                                             New Item
                                         </v-btn>
                                     </template>
@@ -84,7 +96,7 @@
                                 </v-dialog>
                             </v-toolbar>
                         </template>
-                        <template v-slot:item.actions="{ item }">
+                        <template v-slot:[`item.actions`]="{ item }">
                             <v-icon small
                                     class="mr-2"
                                     @click="editItem(item)">
@@ -95,6 +107,7 @@
                                 mdi-delete
                             </v-icon>
                         </template>
+                   
                         <template v-slot:no-data>
                             <v-btn color="primary"
                                    @click="getEquipments('equipment')">
@@ -107,7 +120,6 @@
         </v-container>
     </v-app>
 </template>
-
 <script>
     import { Utils } from '../plugins/Utils';
     import { DataAccess } from '../plugins/DataAccess';
@@ -155,7 +167,8 @@
                         'bodytype': ''
                     }
                 },
-                items: []
+                items: [],
+                sortBy:['hub']
             }
         },
         computed: {
@@ -183,6 +196,9 @@
                 } catch (error) {
                     this.items = [];
                 }
+            },
+            openDialog(){
+                this.dialog=true
             },
             setEquipment(id, equipment) {
                 try {

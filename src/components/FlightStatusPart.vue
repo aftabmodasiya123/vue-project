@@ -245,27 +245,27 @@
                                   <v-list-item-group class="d-flex justify-space-around flex-wrap pa-0 ma-0">
                                       <!-- A/C -->
                                       <v-col cols="12" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(0)"></v-list-item-subtitle>
-                                          <v-list-item-title class="flex-content text-caption" v-text="formatAC(item)"></v-list-item-title>
+                                          <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(0)}}</v-list-item-subtitle>
+                                          <v-list-item-title class="flex-content text-caption">{{formatAC(item)}}</v-list-item-title>
                                       </v-col>
                                       <!-- From -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(1)"></v-list-item-subtitle>
-                                          <v-list-item-title class="flex-content text-caption" v-text="formatFrom(item)"></v-list-item-title>
+                                          <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(1)}}</v-list-item-subtitle>
+                                          <v-list-item-title class="flex-content text-caption">{{formatFrom(item)}}</v-list-item-title>
                                       </v-col>
                                       <!-- STA -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(2)"></v-list-item-subtitle>
-                                          <v-list-item-title class="flex-content text-caption" v-text="formatSTA(item)"></v-list-item-title>
+                                          <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(2)}}</v-list-item-subtitle>
+                                          <v-list-item-title class="flex-content text-caption">{{formatSTA(item)}}</v-list-item-title>
                                       </v-col>
                                       <!-- UTA -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(3)"></v-list-item-subtitle>
-                                          <v-list-item-title class="flex-content text-caption" v-text="formatUTA(item)"></v-list-item-title>
+                                          <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(3)}}</v-list-item-subtitle>
+                                          <v-list-item-title class="flex-content text-caption">{{formatUTA(item)}}</v-list-item-title>
                                       </v-col>
                                       <!-- Status -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(4)"></v-list-item-subtitle>
+                                          <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(4)}}</v-list-item-subtitle>
                                           <v-list-item-title class="flex-content text-caption">
                                               <div v-if="item.arr_status == null"></div>
                                               <div v-else><a @click="openStatus(item.arr_flightid, item.arr_operator, item.arr_fltnr, false)">{{ formatArrStatus(item) }}</a></div>
@@ -273,17 +273,17 @@
                                       </v-col>
                                       <!-- PAX -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(5)"></v-list-item-subtitle>
-                                          <v-list-item-title class="flex-content text-caption" v-text="item.arr_pax" @click="openMessagesFlightDialog(item.arr_flightid)"></v-list-item-title>
+                                          <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(5)}}</v-list-item-subtitle>
+                                          <v-list-item-title class="flex-content text-caption">{{item.arr_pax}} @click="openMessagesFlightDialog(item.arr_flightid)"></v-list-item-title>
                                       </v-col>
                                       <!-- CI -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(6)"></v-list-item-subtitle>
-                                          <v-list-item-title class="flex-content text-caption" v-text="formatCargo(item.arr_cargo)"></v-list-item-title>
+                                          <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(6)}}</v-list-item-subtitle>
+                                          <v-list-item-title class="flex-content text-caption"> {{formatCargo(item.arr_cargo)}}</v-list-item-title>
                                       </v-col>
                                       <!-- Arr Pax % -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(7)"></v-list-item-subtitle>
+                                          <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(7)}}</v-list-item-subtitle>
                                           <v-list-item-title class="flex-content text-caption">
                                               <div v-if="item.arr_fltnr == null"></div>
                                               <div v-else>
@@ -314,32 +314,32 @@
                                       </v-col>
                                       <!-- Stand In -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(8)"></v-list-item-subtitle>
-                                          <v-list-item-title class="flex-content text-caption" v-text="item.arr_stand"></v-list-item-title>
+                                          <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(8)}}</v-list-item-subtitle>
+                                          <v-list-item-title class="flex-content text-caption"> {{item.arr_stand}}</v-list-item-title>
                                       </v-col>
                                       <!-- Turnaround -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(9)"></v-list-item-subtitle>
-                                          <v-list-item-title class="flex-content text-caption" v-text="formatTurnaround(item)"></v-list-item-title>
+                                          <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(9)}}</v-list-item-subtitle>
+                                          <v-list-item-title class="flex-content text-caption"> {{formatTurnaround(item)}}</v-list-item-title>
                                       </v-col>
                                       <!-- Stand Out -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(10)"></v-list-item-subtitle>
-                                          <v-list-item-title class="flex-content text-caption" v-text="formatDepStand(item)"></v-list-item-title>
+                                          <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(10)}}</v-list-item-subtitle>
+                                          <v-list-item-title class="flex-content text-caption">{{formatDepStand(item)}}</v-list-item-title>
                                       </v-col>
                                       <!-- CO -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(11)"></v-list-item-subtitle>
-                                          <v-list-item-title class="flex-content text-caption" v-text="formatCargo(item.dep_cargo)"></v-list-item-title>
+                                          <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(11)}}</v-list-item-subtitle>
+                                          <v-list-item-title class="flex-content text-caption"> {{formatCargo(item.dep_cargo)}}</v-list-item-title>
                                       </v-col>
                                       <!-- PAX -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(12)"></v-list-item-subtitle>
-                                          <v-list-item-title class="flex-content text-caption" v-text="item.dep_pax"></v-list-item-title>
+                                          <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(12)}}</v-list-item-subtitle>
+                                          <v-list-item-title class="flex-content text-caption">{{item.dep_pax}}</v-list-item-title>
                                       </v-col>
                                       <!-- Dep Pax % -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(13)"></v-list-item-subtitle>
+                                          <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(13)}}</v-list-item-subtitle>
                                           <v-list-item-title class="flex-content text-caption">
                                               <div v-if="item.dep_fltnr == null"></div>
                                               <div v-else>
@@ -370,7 +370,7 @@
                                       </v-col>
                                       <!-- Dep Bag % -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(14)"></v-list-item-subtitle>
+                                          <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(14)}}</v-list-item-subtitle>
                                           <v-list-item-title class="flex-content text-caption">
                                               <div v-if="item.dep_fltnr == null"></div>
                                               <div v-else>
@@ -401,7 +401,7 @@
                                       </v-col>
                                       <!-- Status -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(15)"></v-list-item-subtitle>
+                                          <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(15)}}</v-list-item-subtitle>
                                           <v-list-item-title class="flex-content text-caption">
                                               <div v-if="item.dep_status == null"></div>
                                               <div v-else><a @click="openStatus(item.dep_flightid, item.dep_operator, item.dep_fltnr, true)">{{ formatDepStatus(item) }}</a></div>
@@ -409,22 +409,22 @@
                                       </v-col>
                                       <!-- To -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(16)"></v-list-item-subtitle>
-                                          <v-list-item-title class="flex-content text-caption" v-text="formatTo(item)" @click="openMessagesFlightDialog(item.to_flightid)"></v-list-item-title>
+                                          <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(16)}}</v-list-item-subtitle>
+                                          <v-list-item-title class="flex-content text-caption" {{formatTo(item)}} @click="openMessagesFlightDialog(item.to_flightid)"></v-list-item-title>
                                       </v-col>
                                       <!-- STD -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(17)"></v-list-item-subtitle>
-                                          <v-list-item-title class="flex-content text-caption" v-text="formatSTD(item)"></v-list-item-title>
+                                          <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(17)}}</v-list-item-subtitle>
+                                          <v-list-item-title class="flex-content text-caption">{{formatSTD(item)}}</v-list-item-title>
                                       </v-col>
                                       <!-- UTD -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(18)"></v-list-item-subtitle>
-                                          <v-list-item-title class="flex-content text-caption" v-text="formatUTD(item)"></v-list-item-title>
+                                          <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(18)}}</v-list-item-subtitle>
+                                          <v-list-item-title class="flex-content text-caption">{{formatUTD(item)}}</v-list-item-title>
                                       </v-col>
                                       <!-- Prio -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(19)"></v-list-item-subtitle>
+                                          <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(19)}}</v-list-item-subtitle>
                                           <v-list-item-title class="flex-content text-caption">
                                               <div v-if="item.dep_fltnr == null"></div>
                                               <div v-else><v-icon medium
@@ -437,7 +437,7 @@
                                       </v-col>
                                       <!-- Semaphore -->
                                       <v-col cols="4" class="mx-0 my-1 pa-0">
-                                          <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(20)"></v-list-item-subtitle>
+                                          <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(20)}}</v-list-item-subtitle>
                                           <v-list-item-title class="flex-content text-caption">
                                               <v-tooltip bottom v-if="item.dep_fltnr != null && item.dep_fltnr != ''">
                                                   <template v-slot:activator="{ on }">
@@ -476,15 +476,19 @@
                             :items="itemsStatus"
                             hide-default-footer
                             disable-pagination>
-                  <template v-slot:item.status="{item}">
-                      {{ capitalize(item.status) }}
-                  </template>
-                  <template v-slot:item.status_datetime="{item}">
-                      {{ formatDate(item.status_datetime) }}
-                  </template>
-                  <template v-slot:item.ts="{item}">
-                      {{ formatStatus(item)}}
-                  </template>
+                            <template>
+  <ChildComponent>
+    <template v-slot:status>
+      {{ capitalize(item.status) }}
+    </template>
+    <template v-slot:status_datetime>
+      {{ formatDate(item.status_datetime) }}
+    </template>
+    <template v-slot:ts>
+      {{ formatStatus(item) }}
+    </template>
+  </ChildComponent>
+</template>
               </v-data-table>
           </v-card>
       </v-dialog>
@@ -505,7 +509,7 @@
               dataAccess: null,
               dow: util.getDoW(),
               timezone: this.$store.getters.timezone,
-              station: this.stations,
+              station: this.$store.getters.station,
               darkMode: this.$store.getters.darkMode, 
               home: this.homes,
               isMobile: false,
@@ -530,29 +534,29 @@
                   doorclosealert: '',
                   minstartboard: ''
               },
-              headers: [
-                  { text: 'A/C', align: 'left', sortable: false, value: 'arr_ac_registration' },
-                  { text: 'From', align: 'center', sortable: false, value: 'arr_from' },
-                  { text: 'STA', align: 'center', sortable: false, value: 'sta' },
-                  { text: 'UTA', align: 'center', sortable: false, value: 'uta' },
-                  { text: 'Status', align: 'center', sortable: false, value: 'arr_status' },
-                  { text: 'PAX', align: 'center', sortable: false, value: 'arr_pax' },
-                  { text: 'CI', align: 'center', sortable: false, value: 'ci' },
-                  { text: 'Arr Pax %', align: 'center', sortable: false, value: 'arr_board' },
-                  { text: 'Stand In', align: 'center', sortable: false, value: 'arr_stand' },
-                  { text: 'Turnaround', align: 'center', sortable: false, value: 'turnaround' },
-                  { text: 'Stand Out', align: 'center', sortable: false, value: 'dep_stand' },
-                  { text: 'CO', align: 'center', sortable: false,value: 'co' },
-                  { text: 'PAX', align: 'center', sortable: false, value: 'dep_pax' },
-                  { text: 'Dep Pax %', align: 'center', sortable: false, value: 'dep_board' },
-                  { text: 'Dep Bag % ', align: 'center', sortable: false, value: 'dep_processing' },
-                  { text: 'Status', align: 'center', sortable: false, value: 'dep_status' },
-                  { text: 'To', align: 'center', sortable: false, value: 'dep_to' },
-                  { text: 'STD', align: 'center', sortable: false, value: 'std' },
-                  { text: 'UTD', align: 'center', sortable: false, value: 'utd' },
-                  { text: 'Prio', align: 'center', sortable: false, value: '' },
-                  { text: 'Semaphore', align: 'center', sortable: false, value: 'bagm' },
-              ],
+            //   headers: [
+            //       { text: 'A/C', align: 'left', sortable: false, value: 'arr_ac_registration' },
+            //       { text: 'From', align: 'center', sortable: false, value: 'arr_from' },
+            //       { text: 'STA', align: 'center', sortable: false, value: 'sta' },
+            //       { text: 'UTA', align: 'center', sortable: false, value: 'uta' },
+            //       { text: 'Status', align: 'center', sortable: false, value: 'arr_status' },
+            //       { text: 'PAX', align: 'center', sortable: false, value: 'arr_pax' },
+            //       { text: 'CI', align: 'center', sortable: false, value: 'ci' },
+            //       { text: 'Arr Pax %', align: 'center', sortable: false, value: 'arr_board' },
+            //       { text: 'Stand In', align: 'center', sortable: false, value: 'arr_stand' },
+            //       { text: 'Turnaround', align: 'center', sortable: false, value: 'turnaround' },
+            //       { text: 'Stand Out', align: 'center', sortable: false, value: 'dep_stand' },
+            //       { text: 'CO', align: 'center', sortable: false,value: 'co' },
+            //       { text: 'PAX', align: 'center', sortable: false, value: 'dep_pax' },
+            //       { text: 'Dep Pax %', align: 'center', sortable: false, value: 'dep_board' },
+            //       { text: 'Dep Bag % ', align: 'center', sortable: false, value: 'dep_processing' },
+            //       { text: 'Status', align: 'center', sortable: false, value: 'dep_status' },
+            //       { text: 'To', align: 'center', sortable: false, value: 'dep_to' },
+            //       { text: 'STD', align: 'center', sortable: false, value: 'std' },
+            //       { text: 'UTD', align: 'center', sortable: false, value: 'utd' },
+            //       { text: 'Prio', align: 'center', sortable: false, value: '' },
+            //       { text: 'Semaphore', align: 'center', sortable: false, value: 'bagm' },
+            //   ],
               headerStatus: [
                   { text: 'Status', align: 'left', sortable: false, value: 'status' },
                   { text: 'Status Date Time', align: 'center', sortable: false, value: 'status_datetime' },

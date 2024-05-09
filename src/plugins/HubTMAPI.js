@@ -102,7 +102,7 @@ export class APIService {
         let data = {
             'apiid': 3,
             'callId': id,
-            'hub': 'LIS',
+            'hub': hub,
             'history':history
         };
         return this.call(url, data, msalInstance);
@@ -113,7 +113,7 @@ export class APIService {
         let data = {
             'apiid': 4,
             'callId': id,
-            'hub': 'LIS'
+            'hub': hub
         };
         return this.call(url, data, msalInstance);
     }
@@ -664,7 +664,7 @@ export class APIService {
             'callId': id,
             'flightids': flightidsList,
             'registrations': registrationsList,
-            'station': 'LIS'
+            'station': station
         };
         
         return await this.call(url, data, msalInstance);
@@ -695,7 +695,7 @@ export class APIService {
         let data = {
             'apiid': 54,
             'callId': id,
-            'hub': 'LIS',
+            'hub': hub,
             'history': history
         };
         return this.call(url, data, msalInstance);
@@ -716,12 +716,11 @@ export class APIService {
         let data = {
             'apiid': 56,
             'callId': id,
-            'hub': 'LIS',
+            'hub': hub,
             'history': history
         };
         return this.call(url, data, msalInstance);
     }
-    
     getFlightCancel = async (id, history, msalInstance) => {
         const url = 'flightcancel';
         let data = {

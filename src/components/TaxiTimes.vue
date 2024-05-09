@@ -3,10 +3,7 @@
         <v-container grid-list-md text-xs-center>
             <v-row no-gutters class="ma-0 pa-0">
                 <v-col>
-                    <v-data-table :headers="headers"
-                                  :items="items"
-                                  sort-by="hub"
-                                  class="elevation-1">
+                    <v-data-table :headers="headers" :items="items" :sort-by="sortBy" class="elevation-1">
                         <template v-slot:top>
                             <v-toolbar flat>
                                 <v-toolbar-title>TAXI TIMES</v-toolbar-title>
@@ -21,7 +18,8 @@
                                                dark
                                                class="mb-2"
                                                v-bind="attrs"
-                                               v-on="on">
+                                               v-on="on"
+                                               @click="openDialog">
                                             New Item
                                         </v-btn>
                                     </template>
@@ -112,11 +110,12 @@
                                 </v-dialog>
                             </v-toolbar>
                         </template>
-
-                        <template v-slot:item.fields.hubid="{ item }">
-                            {{ formatHub(item.fields.hubid) }}
+                        <template v-slot:itemFieldsHubId>
+                        <div>
+                            <div>{{ formatHub(items.fields.hubid) }}</div>
+                        </div>
                         </template>
-                        <template v-slot:item.actions="{ item }">
+                        <template v-slot:[`item.actions`]="{ item }">
                             <v-icon small
                                     class="mr-2"
                                     @click="editItem(item)">
@@ -215,6 +214,7 @@
                     }
                 },
                 items: [],
+                sortBy:['hub'],
                 itemsStands: [],
                 itemsHubs: []
             }
@@ -244,6 +244,10 @@
                 } catch (error) {
                     this.itemsHubs = [];
                 }
+            },
+            openDialog(){
+
+                this.dialog=true
             },
             getStandTypes(id) {
                 try {

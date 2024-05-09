@@ -5,7 +5,7 @@
                 <v-col>
                     <v-data-table :headers="headers"
                                   :items="items"
-                                  sort-by="hub"
+                                  :sort-by="sortBy"
                                   class="elevation-1">
                         <template v-slot:top>
                             <v-toolbar flat>
@@ -112,19 +112,18 @@
                                 </v-dialog>
                             </v-toolbar>
                         </template>
-                        <template v-slot:item.fields.hubid="{ item }">
-                            {{ formatHub(item.fields.hubid) }}
+                        <template v-slot:itemFieldsHubId>
+                        <div>
+                            <div>{{ formatHub(items.fields.hubid) }}</div>
+                        </div>
                         </template>
-                        <template v-slot:item.actions="{ item }">
-                            <v-icon small
-                                    class="mr-2"
-                                    @click="editItem(item)">
-                                mdi-pencil
-                            </v-icon>
-                            <v-icon small
-                                    @click="deleteItem(item)">
-                                mdi-delete
-                            </v-icon>
+                        <template v-slot:[`item.actions`]="{ item }">
+                        <v-icon small class="mr-2" @click="editItem(item)">
+                            mdi-pencil
+                         </v-icon>
+                       <v-icon small @click="deleteItem(item)">
+                           mdi-delete
+                       </v-icon>
                         </template>
                         <template v-slot:no-data>
                             <v-btn color="primary"
@@ -214,6 +213,7 @@
                     }
                 },
                 items: [],
+                sortBy:['hub'],
                 itemsHubs: [],
                 itemsTF: [
                     { 'key': 'Y', 'value': 'True' },

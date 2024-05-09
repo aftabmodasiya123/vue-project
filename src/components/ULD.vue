@@ -5,7 +5,7 @@
                 <v-col>
                     <v-data-table :headers="headers"
                                   :items="items"
-                                  sort-by="hub"
+                                  :sort-by="sortBy"
                                   class="elevation-1">
                         <template v-slot:top>
                             <v-toolbar flat>
@@ -21,7 +21,8 @@
                                                dark
                                                class="mb-2"
                                                v-bind="attrs"
-                                               v-on="on">
+                                               v-on="on"
+                                               @click="openDialog">
                                             New Item
                                         </v-btn>
                                     </template>
@@ -92,11 +93,11 @@
                                 </v-dialog>
                             </v-toolbar>
                         </template>
-                        <template v-slot:item.actions="{ item }">
+                        <template v-slot:[`item.actions`]="{ item }">
                             <v-icon small
                                     class="mr-2"
                                     @click="editItem(item)">
-                                mdi-pencil
+                                mdi-airplane-edit
                             </v-icon>
                             <v-icon small
                                     @click="deleteItem(item)">
@@ -173,6 +174,7 @@
                     }
                 },
                 items: [],
+                sortBy:['hub']
             }
         },
         computed: {
@@ -193,6 +195,7 @@
                 try {
                     this.dataAccess.getULD(id).then((response) => {
                         this.items = [];
+                        
                         for (var i in response.data) {
                             this.items.push(response.data[i]);
                         }
@@ -200,6 +203,10 @@
                 } catch (error) {
                     this.items = [];
                 }
+            },
+            openDialog(){
+
+                this.dialog=true
             },
             setULD(id, uld) {
                 try {

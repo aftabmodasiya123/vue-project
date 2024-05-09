@@ -62,14 +62,14 @@
                                       class="ma-0 pa-0  flex-table"
                                       fixed-header
                                       >
-                            <template v-for="(h, index) in headers" v-slot:[`header.${h.value}`]="{ header }" :key="index">
-                                <v-tooltip bottom v-bind:key="index">
-                                    <template v-slot:activator="{ on }">
-                                        <span v-on="on">{{ header.text }}</span>
-                                    </template>
-                                    <span>{{ header.tip }}</span>
-                                </v-tooltip>
-                            </template>
+                                      <template v-for="(h, index) in headers" v-slot:[`header.${h.value}`]="{ header }" :key="index">
+    <v-tooltip bottom v-bind:key="index">
+        <template v-slot:activator="{ on }">
+            <span v-if="header && header.text" v-on="on">{{ header.text }}</span>
+        </template>
+        <span>{{ header && header.tip }}</span>
+    </v-tooltip>
+</template>
                             <template #item="{ item }">
                                 <tr v-if="!isMobile">
                                     <td class="text-caption" align="left">{{ formatFlightInbound(item) }}</td>
@@ -100,36 +100,36 @@
                                     <td>
                                         <v-list-item-group class="d-flex justify-space-around flex-wrap pa-0 ma-0">
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(0)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="formatFlightInbound(item)"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(1)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{formatFlightInbound(item)}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(1)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="item.iorigin"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(2)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{item.iorigin}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(2)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="item.istand"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(3)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{item.istand}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(3)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="formatBTA(item)"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(4)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{formatBTA(item)}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(4)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(5)}}</v-list-item-subtitle>
                                                 <v-list-item-title class="flex-content text-caption">-</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(5)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="formatDate(item.etu)"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(6)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{formatDate(item.etu)}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(6)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="item.inrbags"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(7)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{item.inrbags}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(7)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="item.hub"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(8)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{item.hub}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
                                                 <v-list-item-subtitle class="flex-header text-caption">Connectivity</v-list-item-subtitle>
@@ -141,33 +141,33 @@
                                                 </v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(9)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(9)}}</v-list-item-subtitle>
                                                 <v-list-item-title class="flex-content text-caption">
                                                     <router-link :to="formatHRefOutbound(item)">{{ formatFlightOutbound(item) }}</router-link>
                                                 </v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(10)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="item.odest"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(10)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{item.odest}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(11)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="item.ostand"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(11)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{item.ostand}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(12)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="item.olnrbags"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(12)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption" {{item.olnrbags}}></v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(13)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="formatDate(item.etl)"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(13)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption">{{formatDate(item.etl)}}</v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(14)"></v-list-item-subtitle>
-                                                <v-list-item-title class="flex-content text-caption" v-text="formatBTD(item)"></v-list-item-title>
+                                                <v-list-item-subtitle class="flex-header text-caption" >{{getHeaders(14)}}</v-list-item-subtitle>
+                                                <v-list-item-title class="flex-content text-caption" {{formatBTD(item)}}></v-list-item-title>
                                             </v-col>
                                             <v-col cols="4" class="mx-0 my-1 pa-0">
-                                                <v-list-item-subtitle class="flex-header text-caption" v-text="getHeaders(15)"></v-list-item-subtitle>
+                                                <v-list-item-subtitle class="flex-header text-caption">{{getHeaders(15)}}</v-list-item-subtitle>
                                                 <v-list-item-title class="flex-content text-caption">-</v-list-item-title>
                                             </v-col>
                                         </v-list-item-group>
@@ -345,24 +345,30 @@
             },
             getRules(id, hub) {
                 try {
-                    this.dataAccess.getRules(id, hub).then((response) => {
-                        let data = response.data[0].fields;
-                        this.rules.ltyellow = data.ltyellow;
-                        this.rules.ltred = data.ltred;
-                        this.rules.arrivbagmavg = data.arrivbagmavg;
-                        this.rules.otpyellow = data.otpyellow;
-                        this.rules.mct = data.mct;
-                        this.rules.cfyellow = data.cfyellow;
-                        this.rules.cfred = data.cfred;
-                        this.rules.depbagmlimite = data.depbagmlimite;
-                        this.rules.depbagmred = data.depbagmred;
-                        this.rules.ptyellow = data.ptyellow;
-                        this.rules.ptred = data.ptred;
-                        this.rules.h2hyellow = data.h2hyellow;
-                        this.rules.h2hred = data.h2hred;
-                        this.rules.doorclosealert = data.doorclosealert;
-                        this.rules.minstartboard = 5;
-                    })
+                    this.dataAccess.getRules(id, hub)
+        .then((response) => {
+            if (response.data && response.data.length > 0) {
+                let data = response.data[0].fields;
+                this.rules.ltyellow = data.ltyellow;
+                this.rules.ltred = data.ltred;
+                this.rules.arrivbagmavg = data.arrivbagmavg;
+                this.rules.otpyellow = data.otpyellow;
+                this.rules.mct = data.mct;
+                this.rules.cfyellow = data.cfyellow;
+                this.rules.cfred = data.cfred;
+                this.rules.depbagmlimite = data.depbagmlimite;
+                this.rules.depbagmred = data.depbagmred;
+                this.rules.ptyellow = data.ptyellow;
+                this.rules.ptred = data.ptred;
+                this.rules.h2hyellow = data.h2hyellow;
+                this.rules.h2hred = data.h2hred;
+                this.rules.doorclosealert = data.doorclosealert;
+                this.rules.minstartboard = 5;
+            } else {
+                console.error("No rules data found for ID: " + id);
+               
+            }
+        })
                 } catch (error) {
                     this.rules.ltyellow = '';
                     this.rules.ltred = '';
@@ -476,7 +482,6 @@
     };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     ::v-deep ::-webkit-scrollbar {
       width: 7px;
